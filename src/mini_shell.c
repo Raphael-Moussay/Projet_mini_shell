@@ -3,8 +3,8 @@
 #include <unistd.h>
 #include <string.h>
 #include "recuperer_cmd.h"
-#include "decouper_cmd.h"
 #include "exec_cmd.h"
+#include "parser_cmd.h"
 
 
 int main(void)
@@ -14,11 +14,10 @@ int main(void)
     while (1)
     {
         cmd = recuperer_cmd();
-        //printf("Commande récupérée : %s\n", cmd);
         if (strcmp(cmd, "exit") == 0)
         {
             free(cmd);
-            break;
+            return 0;
         }
         command command_parsed;
         parser_cmd(cmd, &command_parsed);
@@ -26,5 +25,4 @@ int main(void)
         free(cmd);
         free_cmd(&command_parsed);
     }
-    return 0;
 }

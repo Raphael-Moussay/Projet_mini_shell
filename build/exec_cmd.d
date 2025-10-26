@@ -1,3 +1,8 @@
-build/exec_cmd.o: src/exec_cmd.c inc/exec_cmd.h
+build/exec_cmd.o: src/exec_cmd.c inc/exec_cmd.h inc/parser_cmd.h \
+ inc/parser_cmd.h
 
 inc/exec_cmd.h:
+
+inc/parser_cmd.h:
+
+inc/parser_cmd.h:
