@@ -20,22 +20,11 @@ int main(void)
             free(cmd);
             break;
         }
-        char *args[] = {cmd, NULL};
-        exec_cmd(cmd, args);
+        command command_parsed;
+        parser_cmd(cmd, &command_parsed);
+        exec_cmd(&command_parsed);
         free(cmd);
+        free_cmd(&command_parsed);
     }
-    // command ** ens_command=decouper_cmd(cmd,&nombre_de_cmd);
-
-    // for (int i=0;i<nombre_de_cmd;i++)
-    // {
-    //     printf("Commande %d récupérée : %s\n", i, ens_command[i]->name);
-    //     for (int j=0;j<ens_command[i]->nb_arg;j++)
-    //     {
-    //         printf("%s", ens_command[i]->arg[j]);
-    //     }
-    //     printf("\n\n");
-    //     free(*ens_command[i]->arg);
-    // }
-    // free(*ens_command);
     return 0;
 }
