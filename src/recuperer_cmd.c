@@ -2,11 +2,13 @@
 #include <string.h>
 #include <stdlib.h>
 #include "recuperer_cmd.h"
+#include "nouvelle_ligne.h"
+
 
 char *recuperer_cmd()
 {
     char *cmd = malloc(200 * sizeof(char));
-    printf("$ ");
+    nouvelle_ligne();
     if (fgets(cmd, 200, stdin) != NULL) 
     {
         cmd[strcspn(cmd, "\n")] = '\0';  // enlève le saut de ligne
