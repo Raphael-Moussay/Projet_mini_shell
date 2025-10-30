@@ -1,64 +1,135 @@
-#include <stdio.h>  // pour printf
-#include <stdlib.h> // pour malloc, free
-#include <string.h> // pour strlen, strcpy, strtok
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "parser_cmd.h"
 
-void free_cmd(command * cmd)
+void free_cmd(command *cmd_head) 
 {
-    free(cmd->name);
-    for (int i=0; i < cmd->nb_arg; i++)
+    command *current = cmd_head;
+    command *next;
+    while (current != NULL) 
     {
-        free(cmd->arg[i]);
+        next = current->next;
+        if (current->name) 
+        {
+            free(current->name);
+        }
+        if (current->arg) {
+            for (int i = 0; i < current->nb_arg; i++) 
+            {
+                if (current->arg[i]) 
+                {
+                    free(current->arg[i]);
+                }
+            }
+            free(current->arg);
+        }
+        free(current);
+        current = next;
     }
-    free(cmd->arg);
 }
 
-void parser_cmd(char *input_cmd, command *cmd_parsee)
+command *parser_cmd_multiple(char *input_cmd) 
 {
-    // Initialiser la structure à un état sûr
-    cmd_parsee->name = NULL;
-    cmd_parsee->arg = NULL;
-    cmd_parsee->nb_arg = 0;
-
-    if (input_cmd == NULL || input_cmd[0] == '\0') {
-        return; // Ne rien faire si l'entrée est vide
+    if (input_cmd == NULL || *input_cmd == '\0') 
+    {
+        return NULL;
     }
 
-    char input_cmd_2[strlen(input_cmd)+2];
-    // si il y a un & à la fin du dernier argument, on met un espace avant
-    if (input_cmd[strlen(input_cmd)-1]=='&')
-    {
-        for (int i=0; i<((int) strlen(input_cmd))-1; i++)
-        {
-            input_cmd_2[i]=input_cmd[i];
+    char *cmd_copy = strdup(input_cmd);
+    char *saveptr_cmd; // Pointeur de sauvegarde pour le strtok_r externe (découpe par commandes)
+
+    command *head = NULL;
+    command *tail = NULL;
+
+    // Première passe : découpe la chaîne par les séparateurs de commandes
+    char *token_cmd = strtok_r(cmd_copy, "&|;>", &saveptr_cmd);
+
+    while (token_cmd != NULL) {
+        command *new_cmd = malloc(sizeof(command));
+        if (!new_cmd) {
+            perror("malloc");
+            free(cmd_copy);
+            free_cmd(head);
+            return NULL;
         }
-        input_cmd_2[strlen(input_cmd)-1]=' ';
-        input_cmd_2[strlen(input_cmd)]='&';
-        input_cmd_2[strlen(input_cmd)+1]='\0';
-    } else
-    {
-        strcpy(input_cmd_2,input_cmd);
-    }
-    char *input_copy = strdup(input_cmd_2);
-    char *token;
-    token = strtok(input_copy, " ");
-    while (token != NULL) 
-    {
-        cmd_parsee->nb_arg++;
-        token = strtok(NULL, " ");
-    }
-    // Allouer suffisamment d'espace pour le tableau d'arguments
-    cmd_parsee->arg = malloc((cmd_parsee->nb_arg+1) * sizeof(char *)); 
+        new_cmd->next = NULL;
 
-    token = strtok(input_cmd_2, " ");
-    cmd_parsee->name = strdup(token); // le nom de la commande est le premier token
-    int i = 0;
-    while (token != NULL) 
-    {
-        cmd_parsee->arg[i] = strdup(token);
-        i++;
-        token = strtok(NULL, " ");
+        // Détermine le séparateur qui suivait ce token
+        char separator = '\0';
+
+        // Calcule l'index du caractère juste après le token actuel
+        size_t end_of_token_offset = (token_cmd - cmd_copy) + strlen(token_cmd);
+        
+        // Si cet index est dans les limites de la chaîne originale, on lit le séparateur
+        if (end_of_token_offset < strlen(input_cmd)) {
+            separator = input_cmd[end_of_token_offset];
+        }
+        new_cmd->separator = separator;
+
+        // --- Début du parsing des arguments pour le token actuel ---
+        char *arg_copy = strdup(token_cmd);
+        char *saveptr_arg; // Pointeur de sauvegarde pour le strtok_r interne (découpe par arguments)
+        int nb_arg = 0;
+
+        // Copie pour compter les arguments
+        char *count_copy = strdup(token_cmd);
+        char *p = count_copy;
+        while (strtok_r(p, " \t\n", &p)) {
+            nb_arg++;
+        }
+        free(count_copy);
+
+        new_cmd->nb_arg = nb_arg;
+        if (nb_arg > 0) {
+            new_cmd->arg = malloc((nb_arg + 1) * sizeof(char *));
+            
+            int i = 0;
+            char *token_arg = strtok_r(arg_copy, " \t\n", &saveptr_arg);
+            while (token_arg != NULL) {
+                new_cmd->arg[i++] = strdup(token_arg);
+                token_arg = strtok_r(NULL, " \t\n", &saveptr_arg);
+            }
+            new_cmd->arg[i] = NULL;
+            new_cmd->name = strdup(new_cmd->arg[0]);
+        } else {
+            new_cmd->arg = NULL;
+            new_cmd->name = NULL;
+        }
+        free(arg_copy);
+        // --- Fin du parsing des arguments ---
+
+        // Ajoute la nouvelle commande à la liste chaînée
+        if (head == NULL) {
+            head = new_cmd;
+            tail = new_cmd;
+        } else {
+            tail->next = new_cmd;
+            tail = new_cmd;
+        }
+
+        // Passe au token de commande suivant
+        token_cmd = strtok_r(NULL, "&|;>", &saveptr_cmd);
     }
-    cmd_parsee->arg[cmd_parsee->nb_arg] = NULL; // execvp a besoin d'un tableau terminé par NULL
-    free (input_copy);  
+
+    free(cmd_copy);
+    return head;
+}
+
+
+void afficher_cmd_list(command *cmd_head) 
+{
+    command *current = cmd_head;
+    while (current != NULL) 
+    {
+        printf("Commande: (%s)\n", current->name);
+        printf("Arguments (%d): ", current->nb_arg);
+        for (int i = 0; i < current->nb_arg; i++) 
+        {
+            printf("(%s) ", current->arg[i]);
+        }
+        printf("\nSéparateur: (%c)\n", current->separator ? current->separator : ' ');
+        printf("-----\n");
+        current = current->next;
+    }
 }

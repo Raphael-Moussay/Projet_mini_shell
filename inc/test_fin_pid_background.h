@@ -1,7 +1,7 @@
 #ifndef TEST_FIN_PID_BACKGROUND_H
 #define TEST_FIN_PID_BACKGROUND_H
 
-typedef enum {
+typedef enum job_status_t {
     JOB_RUNNING,
     JOB_DONE,
     JOB_STOPPED

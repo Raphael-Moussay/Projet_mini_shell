@@ -25,7 +25,8 @@ void free_job_list(job_t **job_list_head)
 void test_fin_pid_background(job_t **job_list_head)
 {
     int status;
-    pid_t pid = waitpid(-1, &status, WNOHANG);
+    pid_t pid = waitpid(-1, &status, WNOHANG); // vérifier si un processus enfant s'est terminé (-1 veut dire pour tous les enfants) (WNOHANG pour ne pas bloquer)
+    
     // parcours de la liste des jobs pour trouver le job correspondant au pid
     job_t *current = *job_list_head;
     while (current != NULL)

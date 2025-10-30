@@ -21,3 +21,8 @@ char *recuperer_cmd()
     free(cmd);
     return NULL;
 }
+
+void afficher_cmd(char *cmd)
+{
+    printf("Commande récupérée : %s\n", cmd);
+}

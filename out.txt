@@ -1,0 +1,7 @@
+bin
+build
+inc
+makefile
+out.txt
+src
+tp-minishell-etu.pdf

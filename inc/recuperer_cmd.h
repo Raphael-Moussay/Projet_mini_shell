@@ -4,4 +4,6 @@
 
 char *recuperer_cmd();
 
+void afficher_cmd(char *cmd);
+
 #endif /* RECUPERER_CMD_H */

@@ -25,6 +25,6 @@ void nouvelle_ligne()
     getcwd(cwd, sizeof(cwd));
     printf("%s%s%s@%s%s", ANSI_COLOR_GREEN, ANSI_COLOR_BOLD, getenv("USER"), hostname, ANSI_COLOR_RESET);
     printf(":");
-    printf("%s%s~%s%s", ANSI_COLOR_RED, ANSI_COLOR_BOLD, cwd, ANSI_COLOR_RESET);
+    printf("%s%s%s%s", ANSI_COLOR_RED, ANSI_COLOR_BOLD, cwd, ANSI_COLOR_RESET);
     printf("$ ");
 }

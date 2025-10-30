@@ -22,6 +22,8 @@ int main(void)
         }
         cmd = recuperer_cmd();
 
+        //afficher_cmd(cmd);
+
         // Ignorer la commande si elle est vide
         if (cmd == NULL || cmd[0] == '\0') {
             free(cmd);
@@ -35,15 +37,14 @@ int main(void)
             free(cmd);
             return 0;
         }
-        command command_parsed;
-        parser_cmd(cmd, &command_parsed);
+        command *command_list_head = parser_cmd_multiple(cmd);
 
+        //afficher_cmd_list(command_list_head);
         // Vérifier si le parsing a produit une commande valide
-        if (command_parsed.name != NULL) {
-            exec_cmd(&command_parsed, &job_list_head);
+        if (command_list_head != NULL) {
+            exec_cmd(command_list_head, &job_list_head);
         }
-
         free(cmd);
-        free_cmd(&command_parsed);
+        free_cmd(command_list_head);
     }
 }
