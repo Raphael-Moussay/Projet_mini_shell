@@ -1,0 +1,60 @@
+\doxysection{job\+\_\+t Struct Reference}
+\hypertarget{structjob__t}{}\label{structjob__t}\index{job\_t@{job\_t}}
+
+
+Représente un job en arrière-\/plan.  
+
+
+
+
+{\ttfamily \#include $<$test\+\_\+fin\+\_\+pid\+\_\+background.\+h$>$}
+
+
+
+Collaboration diagram for job\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{structjob__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structjob__t_af093e06a4c2781ed2c3d71fdaa4f698a}\label{structjob__t_af093e06a4c2781ed2c3d71fdaa4f698a} 
+int {\bfseries id}
+\item 
+\Hypertarget{structjob__t_aa8bb61f1f23819ed8f49aab49afb59bd}\label{structjob__t_aa8bb61f1f23819ed8f49aab49afb59bd} 
+pid\+\_\+t {\bfseries pid}
+\item 
+\Hypertarget{structjob__t_af692bca132c349901435a4844b8d5c32}\label{structjob__t_af692bca132c349901435a4844b8d5c32} 
+char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries arg}
+\item 
+\Hypertarget{structjob__t_af0b4369df82254001362cf5b42231ef8}\label{structjob__t_af0b4369df82254001362cf5b42231ef8} 
+int {\bfseries nb\+\_\+arg}
+\item 
+\Hypertarget{structjob__t_a3843a99623885d244ddde23779130091}\label{structjob__t_a3843a99623885d244ddde23779130091} 
+\mbox{\hyperlink{test__fin__pid__background_8h_ae1082a3ceb302cee481387f33d277956}{job\+\_\+status\+\_\+t}} {\bfseries status}
+\item 
+\Hypertarget{structjob__t_a80412f66df48e9952910eddcdfd14c8c}\label{structjob__t_a80412f66df48e9952910eddcdfd14c8c} 
+struct \mbox{\hyperlink{structjob__t}{job\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries next}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Représente un job en arrière-\/plan. 
+
+
+\begin{DoxyItemize}
+\item {\ttfamily id} \+: identifiant du job (affiché entre crochets).
+\item {\ttfamily pid} \+: PID du processus fils associé.
+\item {\ttfamily arg} \+: copie des arguments de la commande lancée.
+\item {\ttfamily nb\+\_\+arg} \+: nombre d\textquotesingle{}arguments (sans compter le NULL final).
+\item {\ttfamily status} \+: état actuel du job.
+\item {\ttfamily next} \+: pointeur vers le job suivant dans la liste chaînée. 
+\end{DoxyItemize}
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+inc/\mbox{\hyperlink{test__fin__pid__background_8h}{test\+\_\+fin\+\_\+pid\+\_\+background.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="inc/exec_cmd.h" name="inc/exec_cmd.h">
+<area shape="rect" id="Node000001" title="Fonctions d&#39;exécution des commandes du mini&#45;shell." alt="" coords="5,5,128,31"/>
+<area shape="rect" id="Node000002" href="$mini__shell_8c.html" title="Boucle principale du mini&#45;shell interactif." alt="" coords="5,79,128,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,44,69,79,64,79,64,44"/>
+</map>

@@ -1,0 +1,94 @@
+\doxysection{src/test\+\_\+fin\+\_\+pid\+\_\+background.c File Reference}
+\hypertarget{test__fin__pid__background_8c}{}\label{test__fin__pid__background_8c}\index{src/test\_fin\_pid\_background.c@{src/test\_fin\_pid\_background.c}}
+
+
+Gestion et suivi des processus lancés en arrière-\/plan.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/wait.\+h$>$}\newline
+{\ttfamily \#include "{}test\+\_\+fin\+\_\+pid\+\_\+background.\+h"{}}\newline
+Include dependency graph for test\+\_\+fin\+\_\+pid\+\_\+background.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test__fin__pid__background_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{test__fin__pid__background_8c_ac49660bdbd95a535922691b5abe8d373}{free\+\_\+job\+\_\+list}} (\mbox{\hyperlink{structjob__t}{job\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}job\+\_\+list\+\_\+head)
+\begin{DoxyCompactList}\small\item\em Libère toute la liste des jobs et leur mémoire. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{test__fin__pid__background_8c_a95e9926b0b4135c464934baa27b0fba7}{test\+\_\+fin\+\_\+pid\+\_\+background}} (\mbox{\hyperlink{structjob__t}{job\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}job\+\_\+list\+\_\+head)
+\begin{DoxyCompactList}\small\item\em Teste si des processus en arrière-\/plan sont terminés. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{test__fin__pid__background_8c_ab0ed019a3c0f9d423aa1a60ef62cd22d}{ajouter\+\_\+job\+\_\+background}} (pid\+\_\+t pid, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}arg, int nb\+\_\+arg, \mbox{\hyperlink{structjob__t}{job\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}job\+\_\+list\+\_\+head)
+\begin{DoxyCompactList}\small\item\em Ajoute un nouveau job en arrière-\/plan à la liste. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gestion et suivi des processus lancés en arrière-\/plan. 
+
+Implémente l\textquotesingle{}ajout de jobs en arrière-\/plan, la vérification de leur terminaison et la libération de la liste des jobs. 
+
+\label{doc-func-members}
+\Hypertarget{test__fin__pid__background_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{test__fin__pid__background_8c_ab0ed019a3c0f9d423aa1a60ef62cd22d}\index{test\_fin\_pid\_background.c@{test\_fin\_pid\_background.c}!ajouter\_job\_background@{ajouter\_job\_background}}
+\index{ajouter\_job\_background@{ajouter\_job\_background}!test\_fin\_pid\_background.c@{test\_fin\_pid\_background.c}}
+\doxysubsubsection{\texorpdfstring{ajouter\_job\_background()}{ajouter\_job\_background()}}
+{\footnotesize\ttfamily \label{test__fin__pid__background_8c_ab0ed019a3c0f9d423aa1a60ef62cd22d} 
+int ajouter\+\_\+job\+\_\+background (\begin{DoxyParamCaption}\item[{pid\+\_\+t}]{pid}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{arg}{, }\item[{int}]{nb\+\_\+arg}{, }\item[{\mbox{\hyperlink{structjob__t}{job\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{job\+\_\+list\+\_\+head}{}\end{DoxyParamCaption})}
+
+
+
+Ajoute un nouveau job en arrière-\/plan à la liste. 
+
+Duplique les arguments pour que la liste de jobs garde sa propre copie. 
+\begin{DoxyParams}{Parameters}
+{\em pid} & PID du processus lancé en arrière-\/plan. \\
+\hline
+{\em arg} & Tableau d\textquotesingle{}arguments utilisé pour afficher le job. \\
+\hline
+{\em nb\+\_\+arg} & Nombre d\textquotesingle{}arguments. \\
+\hline
+{\em job\+\_\+list\+\_\+head} & Pointeur vers la tête de la liste de jobs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\textquotesingle{}identifiant du job créé. 
+\end{DoxyReturn}
+\Hypertarget{test__fin__pid__background_8c_ac49660bdbd95a535922691b5abe8d373}\index{test\_fin\_pid\_background.c@{test\_fin\_pid\_background.c}!free\_job\_list@{free\_job\_list}}
+\index{free\_job\_list@{free\_job\_list}!test\_fin\_pid\_background.c@{test\_fin\_pid\_background.c}}
+\doxysubsubsection{\texorpdfstring{free\_job\_list()}{free\_job\_list()}}
+{\footnotesize\ttfamily \label{test__fin__pid__background_8c_ac49660bdbd95a535922691b5abe8d373} 
+void free\+\_\+job\+\_\+list (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjob__t}{job\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{job\+\_\+list\+\_\+head}{}\end{DoxyParamCaption})}
+
+
+
+Libère toute la liste des jobs et leur mémoire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em job\+\_\+list\+\_\+head} & Pointeur vers la tête de la liste de jobs. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{test__fin__pid__background_8c_a95e9926b0b4135c464934baa27b0fba7}\index{test\_fin\_pid\_background.c@{test\_fin\_pid\_background.c}!test\_fin\_pid\_background@{test\_fin\_pid\_background}}
+\index{test\_fin\_pid\_background@{test\_fin\_pid\_background}!test\_fin\_pid\_background.c@{test\_fin\_pid\_background.c}}
+\doxysubsubsection{\texorpdfstring{test\_fin\_pid\_background()}{test\_fin\_pid\_background()}}
+{\footnotesize\ttfamily \label{test__fin__pid__background_8c_a95e9926b0b4135c464934baa27b0fba7} 
+void test\+\_\+fin\+\_\+pid\+\_\+background (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjob__t}{job\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{job\+\_\+list\+\_\+head}{}\end{DoxyParamCaption})}
+
+
+
+Teste si des processus en arrière-\/plan sont terminés. 
+
+Parcourt la liste des jobs et met à jour leur état si leur PID a terminé. Affiche un message pour chaque job terminé. 
+\begin{DoxyParams}{Parameters}
+{\em job\+\_\+list\+\_\+head} & Pointeur vers la tête de la liste de jobs. \\
+\hline
+\end{DoxyParams}

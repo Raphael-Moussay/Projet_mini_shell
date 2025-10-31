@@ -1,0 +1,34 @@
+\doxysection{test\+\_\+fin\+\_\+pid\+\_\+background.\+h}
+\hypertarget{test__fin__pid__background_8h_source}{}\label{test__fin__pid__background_8h_source}\index{inc/test\_fin\_pid\_background.h@{inc/test\_fin\_pid\_background.h}}
+\mbox{\hyperlink{test__fin__pid__background_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TEST\_FIN\_PID\_BACKGROUND\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TEST\_FIN\_PID\_BACKGROUND\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{test__fin__pid__background_8h_ae1082a3ceb302cee481387f33d277956}{job\_status\_t}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ JOB\_RUNNING,}
+\DoxyCodeLine{00017\ \ \ \ \ JOB\_DONE,}
+\DoxyCodeLine{00018\ \ \ \ \ JOB\_STOPPED}
+\DoxyCodeLine{00019\ \}\ \mbox{\hyperlink{test__fin__pid__background_8h_ae1082a3ceb302cee481387f33d277956}{job\_status\_t}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structjob__t}{job\_t}}\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00034\ \ \ \ \ pid\_t\ pid;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{char}\ **\ arg;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ nb\_arg;}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{test__fin__pid__background_8h_ae1082a3ceb302cee481387f33d277956}{job\_status\_t}}\ status;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structjob__t}{job\_t}}\ *next;}
+\DoxyCodeLine{00039\ \}\ \mbox{\hyperlink{structjob__t}{job\_t}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{test__fin__pid__background_8h_ac49660bdbd95a535922691b5abe8d373}{free\_job\_list}}(\mbox{\hyperlink{structjob__t}{job\_t}}\ **job\_list\_head);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{test__fin__pid__background_8h_a95e9926b0b4135c464934baa27b0fba7}{test\_fin\_pid\_background}}(\mbox{\hyperlink{structjob__t}{job\_t}}\ **job\_list\_head);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{test__fin__pid__background_8h_ab0ed019a3c0f9d423aa1a60ef62cd22d}{ajouter\_job\_background}}(pid\_t\ pid,\ \textcolor{keywordtype}{char}\ **arg,\ \textcolor{keywordtype}{int}\ nb\_arg,\ \mbox{\hyperlink{structjob__t}{job\_t}}\ **job\_list\_head);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TEST\_FIN\_PID\_BACKGROUND\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

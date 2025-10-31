@@ -1,0 +1,7 @@
+<map id="inc/recuperer_cmd.h" name="inc/recuperer_cmd.h">
+<area shape="rect" id="Node000001" title="Fonctions de lecture de la ligne de commande utilisateur." alt="" coords="71,5,225,31"/>
+<area shape="rect" id="Node000002" href="$mini__shell_8c.html" title="Boucle principale du mini&#45;shell interactif." alt="" coords="5,79,128,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,42,82,80,78,76,123,38"/>
+<area shape="rect" id="Node000003" href="$recuperer__cmd_8c.html" title="User input collection utilities for the shell prompt." alt="" coords="153,79,306,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="173,38,218,76,214,80,170,42"/>
+</map>

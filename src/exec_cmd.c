@@ -8,6 +8,15 @@
 #include "parser_cmd.h"
 #include "test_fin_pid_background.h" // pour job_t
 
+/*******************************************************************************
+ * @file exec_cmd.c
+ * @brief Exécution des commandes (foreground, background, pipes, redirections).
+ *
+ * Contient les implémentations pour lancer des commandes simples,
+ * gérer les processus en arrière-plan, construire des pipelines et
+ * réaliser des redirections basiques.
+ */
+
 void exec_cmd(command *cmd, job_t **job_list_head)
 {
     command *current = cmd;
@@ -202,6 +211,7 @@ void exec_cmd_background(command *cmd, job_t **job_list_head)
 void exec_cmd_pipe(command *cmd, int nombre_pipe, job_t **job_list_head, exec_mode mode)
 {
     int pipes[nombre_pipe][2]; // tableau de pipes pour pouvoir enchaîner les pipes
+    
     for (int i = 0; i < nombre_pipe; i++)
     {
         if (pipe(pipes[i]) == -1) // gestion d'erreur pipe
@@ -212,9 +222,11 @@ void exec_cmd_pipe(command *cmd, int nombre_pipe, job_t **job_list_head, exec_mo
     }
 
     pid_t pids[nombre_pipe + 1]; // tableau pour stocker les PIDs des processus fils
+    
     for (int i = 0; i < nombre_pipe + 1; i++)
     {
         pid_t pid = fork(); // créer un nouveau processus par commande
+        
         if (pid == -1)
         {
             perror("fork");
@@ -243,6 +255,7 @@ void exec_cmd_pipe(command *cmd, int nombre_pipe, job_t **job_list_head, exec_mo
 
             // exécuter la commande
             command *current_cmd = cmd;
+            
             for (int k = 0; k < i; k++)
             {
                 current_cmd = current_cmd->next;
@@ -281,8 +294,9 @@ void exec_cmd_pipe(command *cmd, int nombre_pipe, job_t **job_list_head, exec_mo
         // on prépare les arguments pour ajouter le job en arrière-plan
 
         int nb_cmd = nombre_pipe + 1;
-        command *iter = cmd;
         int nb_tokens = 0;
+
+        command *iter = cmd;
 
         for (int i = 0; i < nb_cmd; i++)
         {
@@ -295,6 +309,7 @@ void exec_cmd_pipe(command *cmd, int nombre_pipe, job_t **job_list_head, exec_mo
         }
 
         char **all_args = malloc(nb_tokens * sizeof(char *));
+
         if (all_args == NULL) // gestion d'erreur malloc
         {
             perror("malloc");
@@ -302,7 +317,9 @@ void exec_cmd_pipe(command *cmd, int nombre_pipe, job_t **job_list_head, exec_mo
         }
 
         iter = cmd;
+
         int index = 0;
+
         for (int i = 0; i < nb_cmd; i++)
         {
             for (int j = 0; j < iter->nb_arg; j++)
@@ -317,6 +334,7 @@ void exec_cmd_pipe(command *cmd, int nombre_pipe, job_t **job_list_head, exec_mo
         }
 
         int job_id = ajouter_job_background(pids[nombre_pipe], all_args, nb_tokens, job_list_head); // ajouter le job à la liste des jobs en arrière-plan
+        
         printf("[%d] %d\n", job_id, pids[nombre_pipe]); // afficher l'ID du job et le PID
 
         for (int i = 0; i < nb_tokens; i++) // libérer la mémoire allouée pour les arguments
@@ -336,8 +354,7 @@ void exec_cmd_arrow(command *cmd)
     {
         perror("fork");
         exit(EXIT_FAILURE);
-    }
-    else if (pid == 0)
+    } else if (pid == 0)
     {
         // le processus fils utilise freopen pour rediriger la sortie standard vers le fichier spécifié
         FILE *fp = freopen(cmd->next->arg[0], "w", stdout);
@@ -349,8 +366,7 @@ void exec_cmd_arrow(command *cmd)
         execvp(cmd->name, cmd->arg);
         perror("execvp"); // gestion d'erreur execvp
         exit(EXIT_FAILURE);
-    }
-    else
+    } else
     {
         // le processus parent attend la fin du processus fils
         waitpid(pid, NULL, 0);

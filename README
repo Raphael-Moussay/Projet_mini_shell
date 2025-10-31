@@ -1,0 +1,28 @@
+README — Mini Shell : Questions traitées / non traitées
+
+Toutes les questions du sujet ont été implémentées
+
+Résumé rapide des fonctionnalités implémentées
+
+Fonctionnalités traitées
+- Invite de commande lisible (couleurs, user@hôte:cwd$)
+- Lecture d’une ligne utilisateur (fgets) et nettoyage du \n
+- Parsing des commandes avec séparateurs: &, |, >, ;
+- Commandes internes de base:
+  - cd
+  - pwd
+- Exécution au premier plan (fork/execvp + waitpid)
+- Exécution en arrière-plan avec & (affichage [job_id] pid)
+- Suivi des jobs en arrière-plan (liste chainée, statut, notification à la fin)
+- Pipelines (|) entre plusieurs commandes
+  - Attente en avant-plan
+  - En arrière-plan: enregistrement du dernier PID comme job
+- Redirection simple de sortie: > (commande > fichier)
+- Commande spéciale exit (arrêt propre + libération des jobs)
+- Documentation Doxygen (entêtes commentés + Doxyfile)
+
+
+Notes de compilation et documentation
+- Compilation: `make` (binaire produit dans bin/run)
+- Documentation: `doxygen Doxyfile` (sortie par défaut dans doc/)
+

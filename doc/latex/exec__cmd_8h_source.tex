@@ -1,0 +1,28 @@
+\doxysection{exec\+\_\+cmd.\+h}
+\hypertarget{exec__cmd_8h_source}{}\label{exec__cmd_8h_source}\index{inc/exec\_cmd.h@{inc/exec\_cmd.h}}
+\mbox{\hyperlink{exec__cmd_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ EXEC\_CMD\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ EXEC\_CMD\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{parser__cmd_8h}{parser\_cmd.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{test__fin__pid__background_8h}{test\_fin\_pid\_background.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{exec__cmd_8h_a9d37583e41ca474c7e6fd0cd891ebe3c}{exec\_mode}}\{}
+\DoxyCodeLine{00022\ \ \ \ \ FOREGROUND,}
+\DoxyCodeLine{00023\ \ \ \ \ BACKGROUND}
+\DoxyCodeLine{00024\ \}\ \mbox{\hyperlink{exec__cmd_8h_a9d37583e41ca474c7e6fd0cd891ebe3c}{exec\_mode}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exec__cmd_8h_a6abe1c117373be5619400cf8d8958550}{exec\_cmd}}(\mbox{\hyperlink{structcommand}{command}}\ *cmd,\ \mbox{\hyperlink{structjob__t}{job\_t}}\ **job\_list\_head);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exec__cmd_8h_a24d1abe216f0d7098d012039a1796ee8}{exec\_cmd\_foreground}}(\mbox{\hyperlink{structcommand}{command}}\ *cmd);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exec__cmd_8h_a89f6d7d5e93864ee702946c85b422ba3}{exec\_cmd\_background}}(\mbox{\hyperlink{structcommand}{command}}\ *cmd,\ \mbox{\hyperlink{structjob__t}{job\_t}}\ **job\_list\_head);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exec__cmd_8h_a59a1dfd5bafd808f883d3a3ba0ce6518}{exec\_cmd\_pipe}}(\mbox{\hyperlink{structcommand}{command}}\ *cmd,\ \textcolor{keywordtype}{int}\ nombre\_pipe,\ \mbox{\hyperlink{structjob__t}{job\_t}}\ **job\_list\_head,\ \mbox{\hyperlink{exec__cmd_8h_a9d37583e41ca474c7e6fd0cd891ebe3c}{exec\_mode}}\ mode);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exec__cmd_8h_a8aa03ec5e5cf3af35ebf3838fba07384}{exec\_cmd\_arrow}}(\mbox{\hyperlink{structcommand}{command}}\ *cmd);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXEC\_CMD\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

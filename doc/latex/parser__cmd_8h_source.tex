@@ -1,0 +1,25 @@
+\doxysection{parser\+\_\+cmd.\+h}
+\hypertarget{parser__cmd_8h_source}{}\label{parser__cmd_8h_source}\index{inc/parser\_cmd.h@{inc/parser\_cmd.h}}
+\mbox{\hyperlink{parser__cmd_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PARSER\_CMD\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PARSER\_CMD\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcommand}{command}}\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{char}\ *\ name;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{char}\ **\ arg;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ nb\_arg;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{char}\ separator;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcommand}{command}}\ *\ next;}
+\DoxyCodeLine{00028\ \}\ \mbox{\hyperlink{structcommand}{command}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{parser__cmd_8h_a68243faa5b695fea2b3cf26701cd1135}{free\_cmd}}(\mbox{\hyperlink{structcommand}{command}}\ *\ cmd);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00046\ \mbox{\hyperlink{structcommand}{command}}\ *\ \mbox{\hyperlink{parser__cmd_8h_a9dad771a8cf5ec38d662a64b6b7baf5c}{parser\_cmd\_multiple}}(\textcolor{keywordtype}{char}\ *input\_cmd);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{parser__cmd_8h_ab7b5d1dc8ef1ddc687430e70936efa44}{afficher\_cmd\_list}}(\mbox{\hyperlink{structcommand}{command}}\ *cmd\_head);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PARSER\_CMD\_H}}
+
+\end{DoxyCode}

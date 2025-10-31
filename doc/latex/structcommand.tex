@@ -1,0 +1,56 @@
+\doxysection{command Struct Reference}
+\hypertarget{structcommand}{}\label{structcommand}\index{command@{command}}
+
+
+Représente une commande et ses arguments.  
+
+
+
+
+{\ttfamily \#include $<$parser\+\_\+cmd.\+h$>$}
+
+
+
+Collaboration diagram for command\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{structcommand__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structcommand_abba3287ede24847a4de869fd64cd071a}\label{structcommand_abba3287ede24847a4de869fd64cd071a} 
+char \texorpdfstring{$\ast$}{*} {\bfseries name}
+\item 
+\Hypertarget{structcommand_a0b42264a9113e704702020a226c89ded}\label{structcommand_a0b42264a9113e704702020a226c89ded} 
+char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries arg}
+\item 
+\Hypertarget{structcommand_ae00864eb998679ebbfdf79e63c94a4ea}\label{structcommand_ae00864eb998679ebbfdf79e63c94a4ea} 
+int {\bfseries nb\+\_\+arg}
+\item 
+\Hypertarget{structcommand_a263d380429df2670274125bcffcbfa38}\label{structcommand_a263d380429df2670274125bcffcbfa38} 
+char {\bfseries separator}
+\item 
+\Hypertarget{structcommand_aa442bc1975e630fbed9abf22b16b6f65}\label{structcommand_aa442bc1975e630fbed9abf22b16b6f65} 
+struct \mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*} {\bfseries next}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Représente une commande et ses arguments. 
+
+
+\begin{DoxyItemize}
+\item {\ttfamily name} \+: nom de la commande (ex\+: "{}ls"{}).
+\item {\ttfamily arg} \+: tableau d\textquotesingle{}arguments, terminé par NULL.
+\item {\ttfamily nb\+\_\+arg} \+: nombre d\textquotesingle{}arguments (sans compter le NULL final).
+\item {\ttfamily separator} \+: caractère séparateur qui a suivi la commande (\textquotesingle{}\&\textquotesingle{}, \textquotesingle{}\texorpdfstring{$\vert$}{|}\textquotesingle{}, \textquotesingle{}\texorpdfstring{$>$}{>}\textquotesingle{}, \textquotesingle{};\textquotesingle{} ou \textquotesingle{}\textbackslash{}0\textquotesingle{}).
+\item {\ttfamily next} \+: pointeur vers la commande suivante dans la chaîne. 
+\end{DoxyItemize}
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+inc/\mbox{\hyperlink{parser__cmd_8h}{parser\+\_\+cmd.\+h}}\end{DoxyCompactItemize}

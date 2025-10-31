@@ -1,0 +1,63 @@
+\doxysection{inc/recuperer\+\_\+cmd.h File Reference}
+\hypertarget{recuperer__cmd_8h}{}\label{recuperer__cmd_8h}\index{inc/recuperer\_cmd.h@{inc/recuperer\_cmd.h}}
+
+
+Fonctions de lecture de la ligne de commande utilisateur.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{recuperer__cmd_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{recuperer__cmd_8h_aa78d9d8efee634b805c69e7f1f0d7c12}{recuperer\+\_\+cmd}} ()
+\begin{DoxyCompactList}\small\item\em Lit une ligne depuis l\textquotesingle{}entrée standard et la retourne allouée dynamiquement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{recuperer__cmd_8h_af1324b0219d1bc7ec10ed8912981de64}{afficher\+\_\+cmd}} (char \texorpdfstring{$\ast$}{*}cmd)
+\begin{DoxyCompactList}\small\item\em Affiche une commande (pour le débogage). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Fonctions de lecture de la ligne de commande utilisateur. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{recuperer__cmd_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{recuperer__cmd_8h_af1324b0219d1bc7ec10ed8912981de64}\index{recuperer\_cmd.h@{recuperer\_cmd.h}!afficher\_cmd@{afficher\_cmd}}
+\index{afficher\_cmd@{afficher\_cmd}!recuperer\_cmd.h@{recuperer\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{afficher\_cmd()}{afficher\_cmd()}}
+{\footnotesize\ttfamily \label{recuperer__cmd_8h_af1324b0219d1bc7ec10ed8912981de64} 
+void afficher\+\_\+cmd (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{cmd}{}\end{DoxyParamCaption})}
+
+
+
+Affiche une commande (pour le débogage). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & Chaîne contenant la commande à afficher. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{recuperer__cmd_8h_aa78d9d8efee634b805c69e7f1f0d7c12}\index{recuperer\_cmd.h@{recuperer\_cmd.h}!recuperer\_cmd@{recuperer\_cmd}}
+\index{recuperer\_cmd@{recuperer\_cmd}!recuperer\_cmd.h@{recuperer\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{recuperer\_cmd()}{recuperer\_cmd()}}
+{\footnotesize\ttfamily \label{recuperer__cmd_8h_aa78d9d8efee634b805c69e7f1f0d7c12} 
+char \texorpdfstring{$\ast$}{*} recuperer\+\_\+cmd (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Lit une ligne depuis l\textquotesingle{}entrée standard et la retourne allouée dynamiquement. 
+
+La chaîne retournée doit être libérée par l\textquotesingle{}appelant via free(). En cas d\textquotesingle{}erreur ou d\textquotesingle{}EOF, la fonction peut retourner NULL.
+
+\begin{DoxyReturn}{Returns}
+Pointeur vers une chaîne allouée contenant la commande sans le \textquotesingle{}~\newline
+\textquotesingle{}, ou NULL. 
+\end{DoxyReturn}

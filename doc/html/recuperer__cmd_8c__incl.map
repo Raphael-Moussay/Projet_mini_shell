@@ -1,0 +1,13 @@
+<map id="src/recuperer_cmd.c" name="src/recuperer_cmd.c">
+<area shape="rect" id="Node000001" title="User input collection utilities for the shell prompt." alt="" coords="150,5,303,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,72,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,33,83,76,81,71,196,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="97,79,167,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,33,160,72,157,68,210,29"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="191,79,262,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="229,31,229,65,224,65,224,31"/>
+<area shape="rect" id="Node000005" href="$recuperer__cmd_8h.html" title="Fonctions de lecture de la ligne de commande utilisateur." alt="" coords="287,79,417,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="248,28,321,69,318,74,245,33"/>
+<area shape="rect" id="Node000006" href="$nouvelle__ligne_8h.html" title="Affichage du prompt (ligne de commande) du mini&#45;shell." alt="" coords="442,79,571,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="272,28,449,73,448,78,271,33"/>
+</map>

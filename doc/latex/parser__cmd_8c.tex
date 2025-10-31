@@ -1,0 +1,88 @@
+\doxysection{src/parser\+\_\+cmd.c File Reference}
+\hypertarget{parser__cmd_8c}{}\label{parser__cmd_8c}\index{src/parser\_cmd.c@{src/parser\_cmd.c}}
+
+
+Implémentation du parser de ligne et utilitaires associés.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}parser\+\_\+cmd.\+h"{}}\newline
+Include dependency graph for parser\+\_\+cmd.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{parser__cmd_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{parser__cmd_8c_ae0ae998bebd4c66a28239d62bc681e08}{free\+\_\+cmd}} (\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*}cmd\+\_\+head)
+\begin{DoxyCompactList}\small\item\em Libère une liste chaînée de commandes allouées par le parser. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{parser__cmd_8c_a9dad771a8cf5ec38d662a64b6b7baf5c}{parser\+\_\+cmd\+\_\+multiple}} (char \texorpdfstring{$\ast$}{*}input\+\_\+cmd)
+\begin{DoxyCompactList}\small\item\em Parse une ligne et retourne une liste de commandes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{parser__cmd_8c_ab7b5d1dc8ef1ddc687430e70936efa44}{afficher\+\_\+cmd\+\_\+list}} (\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*}cmd\+\_\+head)
+\begin{DoxyCompactList}\small\item\em Affiche (pour le débogage) la liste de commandes parsée. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implémentation du parser de ligne et utilitaires associés. 
+
+Contient la logique pour découper une ligne de commande en une liste chaînée de structures {\ttfamily command} et fonctions d\textquotesingle{}affichage/libération. 
+
+\label{doc-func-members}
+\Hypertarget{parser__cmd_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{parser__cmd_8c_ab7b5d1dc8ef1ddc687430e70936efa44}\index{parser\_cmd.c@{parser\_cmd.c}!afficher\_cmd\_list@{afficher\_cmd\_list}}
+\index{afficher\_cmd\_list@{afficher\_cmd\_list}!parser\_cmd.c@{parser\_cmd.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_cmd\_list()}{afficher\_cmd\_list()}}
+{\footnotesize\ttfamily \label{parser__cmd_8c_ab7b5d1dc8ef1ddc687430e70936efa44} 
+void afficher\+\_\+cmd\+\_\+list (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*}}]{cmd\+\_\+head}{}\end{DoxyParamCaption})}
+
+
+
+Affiche (pour le débogage) la liste de commandes parsée. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd\+\_\+head} & Pointeur vers la tête de la liste à afficher. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{parser__cmd_8c_ae0ae998bebd4c66a28239d62bc681e08}\index{parser\_cmd.c@{parser\_cmd.c}!free\_cmd@{free\_cmd}}
+\index{free\_cmd@{free\_cmd}!parser\_cmd.c@{parser\_cmd.c}}
+\doxysubsubsection{\texorpdfstring{free\_cmd()}{free\_cmd()}}
+{\footnotesize\ttfamily \label{parser__cmd_8c_ae0ae998bebd4c66a28239d62bc681e08} 
+void free\+\_\+cmd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*}}]{cmd}{}\end{DoxyParamCaption})}
+
+
+
+Libère une liste chaînée de commandes allouées par le parser. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd\+\_\+head} & Pointeur vers la tête de la liste à libérer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{parser__cmd_8c_a9dad771a8cf5ec38d662a64b6b7baf5c}\index{parser\_cmd.c@{parser\_cmd.c}!parser\_cmd\_multiple@{parser\_cmd\_multiple}}
+\index{parser\_cmd\_multiple@{parser\_cmd\_multiple}!parser\_cmd.c@{parser\_cmd.c}}
+\doxysubsubsection{\texorpdfstring{parser\_cmd\_multiple()}{parser\_cmd\_multiple()}}
+{\footnotesize\ttfamily \label{parser__cmd_8c_a9dad771a8cf5ec38d662a64b6b7baf5c} 
+\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*} parser\+\_\+cmd\+\_\+multiple (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{input\+\_\+cmd}{}\end{DoxyParamCaption})}
+
+
+
+Parse une ligne et retourne une liste de commandes. 
+
+La fonction duplique et découpe la chaîne d\textquotesingle{}entrée. Chaque élément de la liste contient les arguments séparés, le nom de la commande et le séparateur qui suit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+cmd} & Chaîne de caractères contenant la ligne de commande. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur vers la tête de la liste de commandes (NULL si vide ou erreur). 
+\end{DoxyReturn}

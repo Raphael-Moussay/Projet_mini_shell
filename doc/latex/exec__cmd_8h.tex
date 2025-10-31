@@ -1,0 +1,165 @@
+\doxysection{inc/exec\+\_\+cmd.h File Reference}
+\hypertarget{exec__cmd_8h}{}\label{exec__cmd_8h}\index{inc/exec\_cmd.h@{inc/exec\_cmd.h}}
+
+
+Fonctions d\textquotesingle{}exécution des commandes du mini-\/shell.  
+
+
+{\ttfamily \#include "{}parser\+\_\+cmd.\+h"{}}\newline
+{\ttfamily \#include "{}test\+\_\+fin\+\_\+pid\+\_\+background.\+h"{}}\newline
+Include dependency graph for exec\+\_\+cmd.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{exec__cmd_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{exec__cmd_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{exec__cmd_8h_ab29b4b4deed74958c382011ebe19c4e7}\label{exec__cmd_8h_ab29b4b4deed74958c382011ebe19c4e7} 
+typedef enum \mbox{\hyperlink{exec__cmd_8h_a9d37583e41ca474c7e6fd0cd891ebe3c}{exec\+\_\+mode}} {\bfseries exec\+\_\+mode}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{exec__cmd_8h_a9d37583e41ca474c7e6fd0cd891ebe3c}{exec\+\_\+mode}} \{ {\bfseries FOREGROUND}
+, {\bfseries BACKGROUND}
+ \}
+\begin{DoxyCompactList}\small\item\em Mode d\textquotesingle{}exécution pour les pipelines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{exec__cmd_8h_a6abe1c117373be5619400cf8d8958550}{exec\+\_\+cmd}} (\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*}cmd, \mbox{\hyperlink{structjob__t}{job\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}job\+\_\+list\+\_\+head)
+\begin{DoxyCompactList}\small\item\em Exécute une liste de commandes (chaînées) en tenant compte des séparateurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{exec__cmd_8h_a24d1abe216f0d7098d012039a1796ee8}{exec\+\_\+cmd\+\_\+foreground}} (\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*}cmd)
+\begin{DoxyCompactList}\small\item\em Exécute une commande au premier plan. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{exec__cmd_8h_a89f6d7d5e93864ee702946c85b422ba3}{exec\+\_\+cmd\+\_\+background}} (\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*}cmd, \mbox{\hyperlink{structjob__t}{job\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}job\+\_\+list\+\_\+head)
+\begin{DoxyCompactList}\small\item\em Exécute une commande en arrière-\/plan. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{exec__cmd_8h_a59a1dfd5bafd808f883d3a3ba0ce6518}{exec\+\_\+cmd\+\_\+pipe}} (\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*}cmd, int nombre\+\_\+pipe, \mbox{\hyperlink{structjob__t}{job\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}job\+\_\+list\+\_\+head, \mbox{\hyperlink{exec__cmd_8h_a9d37583e41ca474c7e6fd0cd891ebe3c}{exec\+\_\+mode}} mode)
+\begin{DoxyCompactList}\small\item\em Exécute une série de commandes reliées par des pipes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{exec__cmd_8h_a8aa03ec5e5cf3af35ebf3838fba07384}{exec\+\_\+cmd\+\_\+arrow}} (\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*}cmd)
+\begin{DoxyCompactList}\small\item\em Exécute une redirection simple de type \textquotesingle{}commande \texorpdfstring{$>$}{>} fichier\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Fonctions d\textquotesingle{}exécution des commandes du mini-\/shell. 
+
+Ce fichier expose les fonctions permettant d\textquotesingle{}exécuter des commandes simples, en arrière-\/plan, avec redirections et avec pipes. 
+
+\label{doc-enum-members}
+\Hypertarget{exec__cmd_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{exec__cmd_8h_a9d37583e41ca474c7e6fd0cd891ebe3c}\index{exec\_cmd.h@{exec\_cmd.h}!exec\_mode@{exec\_mode}}
+\index{exec\_mode@{exec\_mode}!exec\_cmd.h@{exec\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{exec\_mode}{exec\_mode}}
+{\footnotesize\ttfamily \label{exec__cmd_8h_a9d37583e41ca474c7e6fd0cd891ebe3c} 
+enum \mbox{\hyperlink{exec__cmd_8h_a9d37583e41ca474c7e6fd0cd891ebe3c}{exec\+\_\+mode}}}
+
+
+
+Mode d\textquotesingle{}exécution pour les pipelines. 
+
+FOREGROUND\+: attendre la fin des processus BACKGROUND\+: lancer en arrière-\/plan 
+
+\label{doc-func-members}
+\Hypertarget{exec__cmd_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{exec__cmd_8h_a6abe1c117373be5619400cf8d8958550}\index{exec\_cmd.h@{exec\_cmd.h}!exec\_cmd@{exec\_cmd}}
+\index{exec\_cmd@{exec\_cmd}!exec\_cmd.h@{exec\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{exec\_cmd()}{exec\_cmd()}}
+{\footnotesize\ttfamily \label{exec__cmd_8h_a6abe1c117373be5619400cf8d8958550} 
+void exec\+\_\+cmd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*}}]{cmd}{, }\item[{\mbox{\hyperlink{structjob__t}{job\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{job\+\_\+list\+\_\+head}{}\end{DoxyParamCaption})}
+
+
+
+Exécute une liste de commandes (chaînées) en tenant compte des séparateurs. 
+
+Parcourt la liste de commandes fournie par le parser et appelle la fonction d\textquotesingle{}exécution appropriée selon le séparateur (\&, \texorpdfstring{$\vert$}{|}, \texorpdfstring{$>$}{>}, ...).
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & Liste chaînée de commandes à exécuter (peut contenir plusieurs commandes liées par des séparateurs). \\
+\hline
+{\em job\+\_\+list\+\_\+head} & Pointeur vers la tête de la liste des jobs en arrière-\/plan. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{exec__cmd_8h_a8aa03ec5e5cf3af35ebf3838fba07384}\index{exec\_cmd.h@{exec\_cmd.h}!exec\_cmd\_arrow@{exec\_cmd\_arrow}}
+\index{exec\_cmd\_arrow@{exec\_cmd\_arrow}!exec\_cmd.h@{exec\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{exec\_cmd\_arrow()}{exec\_cmd\_arrow()}}
+{\footnotesize\ttfamily \label{exec__cmd_8h_a8aa03ec5e5cf3af35ebf3838fba07384} 
+void exec\+\_\+cmd\+\_\+arrow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*}}]{cmd}{}\end{DoxyParamCaption})}
+
+
+
+Exécute une redirection simple de type \textquotesingle{}commande \texorpdfstring{$>$}{>} fichier\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & La commande dont le champ next contient le fichier de sortie. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{exec__cmd_8h_a89f6d7d5e93864ee702946c85b422ba3}\index{exec\_cmd.h@{exec\_cmd.h}!exec\_cmd\_background@{exec\_cmd\_background}}
+\index{exec\_cmd\_background@{exec\_cmd\_background}!exec\_cmd.h@{exec\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{exec\_cmd\_background()}{exec\_cmd\_background()}}
+{\footnotesize\ttfamily \label{exec__cmd_8h_a89f6d7d5e93864ee702946c85b422ba3} 
+void exec\+\_\+cmd\+\_\+background (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*}}]{cmd}{, }\item[{\mbox{\hyperlink{structjob__t}{job\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{job\+\_\+list\+\_\+head}{}\end{DoxyParamCaption})}
+
+
+
+Exécute une commande en arrière-\/plan. 
+
+Lance la commande dans un fils sans attendre sa terminaison, puis ajoute le job à la liste des jobs en arrière-\/plan. 
+\begin{DoxyParams}{Parameters}
+{\em cmd} & Pointeur vers la commande à exécuter. \\
+\hline
+{\em job\+\_\+list\+\_\+head} & Pointeur vers la tête de la liste des jobs en arrière-\/plan. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{exec__cmd_8h_a24d1abe216f0d7098d012039a1796ee8}\index{exec\_cmd.h@{exec\_cmd.h}!exec\_cmd\_foreground@{exec\_cmd\_foreground}}
+\index{exec\_cmd\_foreground@{exec\_cmd\_foreground}!exec\_cmd.h@{exec\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{exec\_cmd\_foreground()}{exec\_cmd\_foreground()}}
+{\footnotesize\ttfamily \label{exec__cmd_8h_a24d1abe216f0d7098d012039a1796ee8} 
+void exec\+\_\+cmd\+\_\+foreground (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*}}]{cmd}{}\end{DoxyParamCaption})}
+
+
+
+Exécute une commande au premier plan. 
+
+Traite les commandes internes (cd, pwd) et les commandes externes via fork/exec. 
+\begin{DoxyParams}{Parameters}
+{\em cmd} & Pointeur vers la commande à exécuter. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{exec__cmd_8h_a59a1dfd5bafd808f883d3a3ba0ce6518}\index{exec\_cmd.h@{exec\_cmd.h}!exec\_cmd\_pipe@{exec\_cmd\_pipe}}
+\index{exec\_cmd\_pipe@{exec\_cmd\_pipe}!exec\_cmd.h@{exec\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{exec\_cmd\_pipe()}{exec\_cmd\_pipe()}}
+{\footnotesize\ttfamily \label{exec__cmd_8h_a59a1dfd5bafd808f883d3a3ba0ce6518} 
+void exec\+\_\+cmd\+\_\+pipe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcommand}{command}} \texorpdfstring{$\ast$}{*}}]{cmd}{, }\item[{int}]{nombre\+\_\+pipe}{, }\item[{\mbox{\hyperlink{structjob__t}{job\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{job\+\_\+list\+\_\+head}{, }\item[{\mbox{\hyperlink{exec__cmd_8h_a9d37583e41ca474c7e6fd0cd891ebe3c}{exec\+\_\+mode}}}]{mode}{}\end{DoxyParamCaption})}
+
+
+
+Exécute une série de commandes reliées par des pipes. 
+
+Crée les pipes nécessaires, fork/exec pour chaque maillon et gère le comportement foreground/background selon {\ttfamily mode}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & Pointeur vers la première commande de la chaîne de pipes. \\
+\hline
+{\em nombre\+\_\+pipe} & Nombre de pipes (nombre de séparations \textquotesingle{}\texorpdfstring{$\vert$}{|}\textquotesingle{}). \\
+\hline
+{\em job\+\_\+list\+\_\+head} & Pointeur vers la tête de la liste des jobs en arrière-\/plan. \\
+\hline
+{\em mode} & Mode d\textquotesingle{}exécution (FOREGROUND ou BACKGROUND). \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,54 @@
+\doxysection{src/mini\+\_\+shell.c File Reference}
+\hypertarget{mini__shell_8c}{}\label{mini__shell_8c}\index{src/mini\_shell.c@{src/mini\_shell.c}}
+
+
+Boucle principale du mini-\/shell interactif.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$wait.\+h$>$}\newline
+{\ttfamily \#include "{}recuperer\+\_\+cmd.\+h"{}}\newline
+{\ttfamily \#include "{}exec\+\_\+cmd.\+h"{}}\newline
+{\ttfamily \#include "{}parser\+\_\+cmd.\+h"{}}\newline
+{\ttfamily \#include "{}test\+\_\+fin\+\_\+pid\+\_\+background.\+h"{}}\newline
+Include dependency graph for mini\+\_\+shell.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mini__shell_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{mini__shell_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Point d\textquotesingle{}entrée du mini-\/shell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Boucle principale du mini-\/shell interactif. 
+
+Ce fichier contient la fonction \doxylink{mini__shell_8c_a840291bc02cba5474a4cb46a9b9566fe}{main()} qui initialise la liste des jobs en arrière-\/plan, récupère les commandes utilisateur, les parse et les exécute. La commande spéciale "{}exit"{} termine proprement le shell. 
+
+\label{doc-func-members}
+\Hypertarget{mini__shell_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{mini__shell_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{mini\_shell.c@{mini\_shell.c}!main@{main}}
+\index{main@{main}!mini\_shell.c@{mini\_shell.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{mini__shell_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Point d\textquotesingle{}entrée du mini-\/shell. 
+
+Lit les commandes de l\textquotesingle{}utilisateur en boucle, met à jour la liste des jobs en arrière-\/plan via \doxylink{test__fin__pid__background_8h_a95e9926b0b4135c464934baa27b0fba7}{test\+\_\+fin\+\_\+pid\+\_\+background()}, et exécute les commandes parsées. Retourne 0 en cas de sortie normale.
+
+\begin{DoxyReturn}{Returns}
+int Code de sortie (0 = OK). 
+\end{DoxyReturn}
